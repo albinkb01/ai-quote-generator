@@ -1,56 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Quotica – Daily AI Quotes</title>
-  <meta name="description" content="Quotica delivers AI-generated daily motivational quotes. Copy, download, and share your daily boost of inspiration.">
-  <link rel="stylesheet" href="style.css">
-  <!-- Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Quotica - Daily AI-Generated Motivational Quotes">
+  <title>Quotica - Daily AI Quotes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ff8a00, #e52e71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    #quote-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 700px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    #quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    #author {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    button {
+      margin-top: 2rem;
+      background: #ff8a00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #e52e71;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    a {
+      color: #f8f8f8;
+    }
+  </style>
 </head>
 <body>
-  <!-- 🅰️ Header Ad -->
-  <div class="ads-header">
-    <!-- Replace data-ad-slot with your real slot ID -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-xxxxxxxxxxxxxxx"
-         data-ad-slot="1111111111"
-         data-ad-format="horizontal"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <h1>Quotica</h1>
+  <div id="quote-box">
+    <p id="quote">Loading quote...</p>
+    <p id="author">—</p>
+  </div>
+  <button onclick="fetchQuote()">New Quote</button>
+
+  <!-- AdSense Placeholder -->
+  <div style="margin-top:2rem;">
+    <!-- Replace with real AdSense code after approval -->
+    <p style="color:#999;">[Ad Placeholder]</p>
   </div>
 
-  <div class="quote-box">
-    <h1>✨ Quotica</h1>
-    <p id="quote">Click the button to generate a quote!</p>
-    <button onclick="generateQuote()">Generate Quote</button>
-    <button onclick="copyQuote()">📋 Copy</button>
+  <footer>
+    <p>© 2025 Quotica. All rights reserved. <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
 
-    <!-- 🅱️ Below Quote Ad -->
-    <div class="ads-inline">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-xxxxxxxxxxxxxxx"
-           data-ad-slot="2222222222"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-  </div>
+  <script>
+    async function fetchQuote() {
+      try {
+        const res = await fetch('https://api.quotable.io/random');
+        const data = await res.json();
+        document.getElementById('quote').textContent = `"${data.content}"`;
+        document.getElementById('author').textContent = `— ${data.author}`;
+      } catch (error) {
+        document.getElementById('quote').textContent = "Failed to load quote.";
+        document.getElementById('author').textContent = "";
+      }
+    }
 
-  <!-- 🔚 Footer Ad -->
-  <div class="ads-footer">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-xxxxxxxxxxxxxxx"
-         data-ad-slot="3333333333"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <script src="script.js"></script>
+    // Load one when page starts
+    fetchQuote();
+  </script>
 </body>
 </html>

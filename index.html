@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quotica - Daily AI Quotes</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Quotica – Daily AI Quotes</title>
+  <meta name="description" content="Quotica delivers AI-generated daily motivational quotes. Copy, download, and share your daily boost of inspiration.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <h1 class="logo">Quotica</h1>
-    <nav>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </header>
+  <!-- 🅰️ Header Ad -->
+  <div class="ads-header">
+    <!-- Replace data-ad-slot with your real slot ID -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxx"
+         data-ad-slot="1111111111"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
-  <main class="card">
-    <div class="quote-box">
-      <p id="quote">Loading...</p>
-      <span id="author">-</span>
-      <button onclick="getQuote()">New Quote</button>
+  <div class="quote-box">
+    <h1>✨ Quotica</h1>
+    <p id="quote">Click the button to generate a quote!</p>
+    <button onclick="generateQuote()">Generate Quote</button>
+    <button onclick="copyQuote()">📋 Copy</button>
+
+    <!-- 🅱️ Below Quote Ad -->
+    <div class="ads-inline">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-xxxxxxxxxxxxxxx"
+           data-ad-slot="2222222222"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-    <!-- Placeholder for Google AdSense -->
-    <div class="ad-banner"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8588481073610682"
-     crossorigin="anonymous"></script></div>
-  </main>
+  </div>
 
-  <footer>
-    <p>© 2025 Quotica. All rights reserved.</p>
-  </footer>
+  <!-- 🔚 Footer Ad -->
+  <div class="ads-footer">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxx"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
